@@ -44,7 +44,7 @@ The function does not take any inputs and returns a board representing the initi
 
 Example:
 - setBoard
-``` Prolog
+``` Haskell
 (White,
 [R (’h’,1),N (’g’,1),B (’f’,1),K (’e’,1),Q (’d’,1),B (’c’,1),N (’b’,1),R (’a’,1),
 P (’h’,2),P (’g’,2),P (’f’,2),P (’e’,2),P (’d’,2),P (’c’,2),P (’b’,2),P (’a’,2)] ,
@@ -56,7 +56,7 @@ P (’h’,7),P (’g’,7),P (’f’,7),P (’e’,7), P (’d’,7),P (’c�
 
 Example:
 - visualizeBoard
-``` Prolog
+``` Haskell
 - visualizeBoard (setBoard)
 
 a b c d e f g h
@@ -80,7 +80,7 @@ The function takes as input a piece, a board, and a location. It returns True if
 
 Example:
 - isLegal
-``` Prolog
+``` Haskell
 - isLegal (P (’a’,7)) (setBoard) (’a’,5) True
 - isLegal (P (’a’,7)) (setBoard) (’a’,4) False
 - isLegal (R (’h’,8)) (setBoard) (’h’,7) False
@@ -91,7 +91,7 @@ The function takes as input a piece and a board and outputs a list of possible l
 
 Example:
 - suggestMove
-``` Prolog
+``` Haskell
 - suggestMove (P (’e’,2)) (setBoard) [(’e’,3),(’e’,4)]
 - suggestMove (N (’b’,8)) (setBoard) [(’a’,6),(’c’,6)]
 ```
@@ -99,7 +99,7 @@ Example:
 
 Example:
 - move
-``` Prolog
+``` Haskell
 - move (P (’a’,7)) (’a’,6) (setBoard)
 
 Program error: This is White player’s turn, Black can’t move.
