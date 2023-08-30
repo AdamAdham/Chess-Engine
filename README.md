@@ -40,21 +40,23 @@ Your implementation must also contain the following functions. You are not allow
 
 1) setBoard :: Board
 
-The function does not take any inputs and returns a board representing the initial configuration depicted in Figure 1.[ ](#_page0_x260.37_y526.51)Assume that the first turn is always on the white player. Example:
+The function does not take any inputs and returns a board representing the initial configuration depicted in Figure 1.[ ](#_page0_x260.37_y526.51)Assume that the first turn is always on the white player. 
 
+Example:
 - setBoard
+``` Prolog
+(White,
+[R (’h’,1),N (’g’,1),B (’f’,1),K (’e’,1),Q (’d’,1),B (’c’,1),N (’b’,1),R (’a’,1),
+P (’h’,2),P (’g’,2),P (’f’,2),P (’e’,2),P (’d’,2),P (’c’,2),P (’b’,2),P (’a’,2)] ,
+[R (’h’,8),N (’g’,8),B (’f’,8),K (’e’,8),Q (’d’,8),B (’c’,8),N (’b’,8),R (’a’,8),
+P (’h’,7),P (’g’,7),P (’f’,7),P (’e’,7), P (’d’,7),P (’c’,7),P (’b’,7),P (’a’,7)])
+```
 
-(White, [R (’h’,1),N (’g’,1),B (’f’,1),K (’e’,1),
+2) visualizeBoard:: Board->String The function takes as input a board and re- turns a visual representation of the board in a string. Black pieces are suffixed with ’B’ and white pieces are suffixed with ’W’.
 
-Q (’d’,1),B (’c’,1),N (’b’,1),R (’a’,1),
-
-P (’h’,2),P (’g’,2),P (’f’,2),P (’e’,2),
-
-P (’d’,2),P (’c’,2),P (’b’,2),P (’a’,2)] , [R (’h’,8),N (’g’,8),B (’f’,8),K (’e’,8),
-
-Q (’d’,8),B (’c’,8),N (’b’,8),R (’a’,8), P (’h’,7),P (’g’,7),P (’f’,7),P (’e’,7), P (’d’,7),P (’c’,7),P (’b’,7),P (’a’,7)])
-
-2) visualizeBoard:: Board->String The function takes as input a board and re- turns a visual representation of the board in a string. Black pieces are suffixed with ’B’ and white pieces are suffixed with ’W’. Example:
+Example:
+- visualizeBoard
+``` Prolog
 - visualizeBoard (setBoard)
 
 a b c d e f g h
@@ -63,30 +65,41 @@ a b c d e f g h
 
 7 | PB | PB | PB | PB | PB | PB | PB | PB |
 
-6 | | | | | | | | | 5 | | | | | | | | | 4 | | | | | | | | | 3 | | | | | | | | | 2 | PW | PW | PW | PW | PW | PW | PW | PW |
+6 | | | | | | | | | 
+5 | | | | | | | | | 
+4 | | | | | | | | | 
+3 | | | | | | | | | 
+2 | PW | PW | PW | PW | PW | PW | PW | PW |
 
 1 | RW | NW | BW | QW | KW | BW | NW | RW |
-
 Turn: White
-
+```
 3) isLegal:: Piece -> Board -> Location -> Bool
 
 The function takes as input a piece, a board, and a location. It returns True if the move of the piece on the given board to the input location is legal, and False otherwise.
 
 Example:
-
+- isLegal
+``` Prolog
 - isLegal (P (’a’,7)) (setBoard) (’a’,5) True
 - isLegal (P (’a’,7)) (setBoard) (’a’,4) False
 - isLegal (R (’h’,8)) (setBoard) (’h’,7) False
+```
 4) suggestMove:: Piece -> Board -> [Location]
 
 The function takes as input a piece and a board and outputs a list of possible legal next locations for the piece.
 
 Example:
-
+- suggestMove
+``` Prolog
 - suggestMove (P (’e’,2)) (setBoard) [(’e’,3),(’e’,4)]
 - suggestMove (N (’b’,8)) (setBoard) [(’a’,6),(’c’,6)]
+```
 5) move:: Piece -> Location -> Board -> Board The function takes as input a piece, a location, and a board and returns a new updated board after the move is applied if it is a legal move. Otherwise, if the move is illegal, the function throws an appropriate error.
+
+Example:
+- move
+``` Prolog
 - move (P (’a’,7)) (’a’,6) (setBoard)
 
 Program error: This is White player’s turn, Black can’t move.
@@ -112,8 +125,8 @@ P (’d’,7),P (’c’,7),P (’b’,7),P (’a’,7)])
 (Black,[R (’h’,1),N (’g’,1),B (’f’,1),K (’e’,1),
 
 Q (’d’,1),B (’c’,1),N (’d’,4),R (’a’,1), P (’h’,2),P (’g’,2),P (’f’,2),P (’e’,2), P (’d’,2),P (’c’,2),P (’b’,2),P (’a’,2)], [R (’h’,8),N (’g’,8),B (’f’,8),K (’e’,8), Q (’d’,8),B (’c’,8),N (’b’,8),R (’a’,8), P (’h’,7),P (’g’,7),P (’f’,7),P (’e’,7), P (’d’,7),P (’c’,7),P (’b’,7),P (’a’,7)])
+```
 
 3\. Teams. You are allowed to work in teams of four members. You must stick to the same team you worked with in Project 1. IDs for the submitted teams are posted on the CMS.
 
 5\. Deliverables. You should submit a single .hs file named with your team ID containing your implementation. The submission link will be posted on the CMS prior to the submission.
-4
